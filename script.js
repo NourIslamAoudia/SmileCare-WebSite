@@ -64,6 +64,18 @@ document.addEventListener('DOMContentLoaded', function() {
             appointmentForm.reset();
         });
     }
+
+    // Dans le fichier script.js, ajoutez à la fonction animateOnScroll
+    const locationSection = document.querySelector('.location');
+    if (locationSection) {
+        const locationPosition = locationSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (locationPosition < screenPosition) {
+            locationSection.style.opacity = '1';
+            locationSection.style.transform = 'translateY(0)';
+        }
+    }
     
     // Smooth scrolling pour les ancres
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
